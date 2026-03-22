@@ -1,15 +1,24 @@
+name: Build and deploy on push
+
 on:
   push:
     branches:
       - master
-name: Build and deploy on push
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write 
+
 jobs:
   build:
-    name: zbrox/zola-deploy-action
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
-    - name: zbrox/zola-deploy-action
-      uses: zbrox/zola-deploy-action@master
-      env:
-        TOKEN: ${{ secrets.TOKEN }}
+      - uses: actions/checkout@v4
+
+      - name: Build and deploy
+        uses: zbrox/zola-deploy-action@vX.Y.Z
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
