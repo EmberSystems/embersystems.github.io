@@ -27,6 +27,10 @@ jobs:
       HUGO_VERSION: v0.158.0
 
     steps:
+
+      - name: Cleanup Local
+        run: rm -rf public resources/_gen
+        
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION#v}_linux-amd64.deb
@@ -45,6 +49,7 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+
 
       - name: Build with Hugo
         env:
