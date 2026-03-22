@@ -51,10 +51,6 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-<<<<<<< HEAD
-=======
-          rm -rf public resources/_gen
->>>>>>> 58f2b0d406a07e13cebb04969c90b1194939ac75
           hugo \
             --gc \
             --minify \
@@ -77,10 +73,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
         uses: actions/deploy-pages@v4
-=======
-        uses: actions/deploy-pages@v4
-        with:
-          node-version: 24
->>>>>>> 58f2b0d406a07e13cebb04969c90b1194939ac75
