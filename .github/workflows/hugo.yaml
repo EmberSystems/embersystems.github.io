@@ -28,9 +28,9 @@ jobs:
 
     steps:
 
-      - name: Cleanup Local
+      - name: Cleanup leftover build artifacts
         run: rm -rf public resources/_gen
-        
+
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION#v}_linux-amd64.deb
@@ -61,10 +61,6 @@ jobs:
             --minify \
             --cleanDestinationDir \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-
-      
-      - name: Clean
-        run: rm -rf public resources/_gen
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
