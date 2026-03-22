@@ -51,20 +51,19 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-<<<<<<< HEAD
-=======
-          rm -rf public resources/_gen
->>>>>>> 58f2b0d406a07e13cebb04969c90b1194939ac75
           hugo \
             --gc \
             --minify \
             --cleanDestinationDir \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      
+      - name: Clean
+        run: rm -rf public resources/_gen
+
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./public
 
   deploy:
@@ -77,10 +76,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
         uses: actions/deploy-pages@v4
-=======
-        uses: actions/deploy-pages@v4
-        with:
-          node-version: 24
->>>>>>> 58f2b0d406a07e13cebb04969c90b1194939ac75
