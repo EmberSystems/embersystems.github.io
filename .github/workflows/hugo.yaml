@@ -51,6 +51,10 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
+<<<<<<< HEAD
+=======
+          hugo --gc --minify --cleanDestinationDir --destination public
+>>>>>>> 8ef8bd1f7564e6b474fff291f6547359c826e46b
           hugo \
             --gc \
             --minify \
