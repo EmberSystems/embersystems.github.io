@@ -3,32 +3,96 @@
 {% block content %}
 
 {%- if paginator.pages -%}
-  {%- set number_of_posts = paginator.total_pages -%}
+	{%- set number_of_posts = paginator.total_pages -%}
 {%- elif section.pages -%}
-  {%- set number_of_posts = section.pages | length -%}
+	{%- set number_of_posts = section.pages | length -%}
 {%- endif -%}
 
 {%- if not section.extra.no_header -%}
-  <h1>{{ section.title }}</h1>	
+	<h1>{{ section.title }}</h1>
 {%- endif -%}
 
 {{ section.content | safe }}
 
 <p>
-  <small>
-    {%- for taxonomy in config.taxonomies %}
-      {%- if taxonomy.name == "tags" %}
-        <a href="{{ get_url(path='tags', lang=lang) }}">{{ macros_translate::translate(key="filter_tag", default="Filter by tag", language_strings=language_strings) }}</a>
-        <br />
-      {%- endif %}
-      {%- if taxonomy.name == "categories" %}
-        <a href="{{ get_url(path='categories', lang=lang) }}">{{ macros_translate::translate(key="filter_category", default="Filter by category", language_strings=language_strings) }}</a>
-        <br />
-      {%- endif %}
-    {%- endfor %}
-    {{ macros_translate::translate(key="posts", number=number_of_posts, default="$NUMBER posts in total", language_strings=language_strings) }}
-  </small>
+	<small>
+		{%- for taxonomy in config.taxonomies %}
+			{%- if taxonomy.name == "tags" %}
+				<a href="{{ get_url(path='tags', lang=lang) }}">{{ macros_translate::translate(key="filter_tag", default="Filter by tag", language_strings=language_strings) }}</a>
+				<br />
+			{%- endif %}
+			{%- if taxonomy.name == "categories" %}
+				<a href="{{ get_url(path='categories', lang=lang) }}">{{ macros_translate::translate(key="filter_category", default="Filter by category", language_strings=language_strings) }}</a>
+				<br />
+			{%- endif %}
+		{%- endfor %}
+		{{ macros_translate::translate(key="posts", number=number_of_posts, default="$NUMBER posts in total", language_strings=language_strings) }}
+	</small>
 </p>
+
+<div class="article-list">
+	{%- if paginator.pages -%}
+		{%- for page in paginator.pages %}
+		<article>
+			<div>
+				<a href="{{ page.permalink | safe }}">
+					<h3>{{ page.title }}</h3>
+				</a>
+				<div class="description">
+					{{ page.description | markdown | safe }}
+				</div>
+				<div class="article-details">
+					{%- if page.date %}
+					<div title="{{ page.date | date(format=config.extra.date_format_long | default(value='%B %d, %Y, %R (%Z)'), timezone=config.extra.timezone | default(value='UTC'), locale=config.extra.date_locale | default(value='en_US')) }}" class="tooltip">
+						{{ macros_icon::icon(name="calendar") }}
+						<time datetime="{{ page.date | date(format='%Y-%m-%dT%H:%M:%S%z') }}" pubdate>{{ page.date | date(format=config.extra.date_format | default(value='%d %B %Y'), timezone=config.extra.timezone | default(value='UTC'), locale=config.extra.date_locale | default(value='en_US')) }}</time>
+					</div>
+					{%- endif %}
+					{%- if page.authors %}
+					<div>
+						{{ macros_icon::icon(name="users") }}
+						<span>{{ page.authors | join(patr=', ') }}</span>
+					</div>
+					{%- endif %}
+				</div>
+			</div>
+			<a class="open-post" href="{{ page.permalink | safe }}">
+				{{- macros_icon::icon(name="caret-right") -}}
+			</a>
+		</article>
+		{%- endfor %}
+	{%- elif section.pages -%}
+		{%- for page in section.pages %}
+		<article>
+			<div>
+				<a href="{{ page.permalink | safe }}">
+					<h3>{{ page.title }}</h3>
+				</a>
+				<div class="description">
+					{{ page.description | markdown | safe }}
+				</div>
+				<div class="article-details">
+					{%- if page.date %}
+					<div title="{{ page.date | date(format=config.extra.date_format_long | default(value='%B %d, %Y, %R (%Z)'), timezone=config.extra.timezone | default(value='UTC'), locale=config.extra.date_locale | default(value='en_US')) }}" class="tooltip">
+						{{ macros_icon::icon(name="calendar") }}
+						<time datetime="{{ page.date | date(format='%Y-%m-%dT%H:%M:%S%z') }}" pubdate>{{ page.date | date(format=config.extra.date_format | default(value='%d %B %Y'), timezone=config.extra.timezone | default(value='UTC'), locale=config.extra.date_locale | default(value='en_US')) }}</time>
+					</div>
+					{%- endif %}
+					{%- if page.authors %}
+					<div>
+						{{ macros_icon::icon(name="users") }}
+						<span>{{ page.authors | join(patr=', ') }}</span>
+					</div>
+					{%- endif %}
+				</div>
+			</div>
+			<a class="open-post" href="{{ page.permalink | safe }}">
+				{{- macros_icon::icon(name="caret-right") -}}
+			</a>
+		</article>
+		{%- endfor %}
+	{%- endif %}
+</div>
 
 {% include "partials/article_list.html" %}
 {% include "partials/paginator.html" %}

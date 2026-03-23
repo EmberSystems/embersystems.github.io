@@ -21,8 +21,8 @@ feed_filenames = ["atom.xml", "rss.xml"]
 default_language = "en"
 
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 10 },
-  { name = "categories", feed = true },
+	{ name = "tags", feed = true, paginate_by = 10 },
+	{ name = "categories", feed = true },
 ]
 
 [markdown]
@@ -36,8 +36,8 @@ style = "class"
 light_theme = "monokai-pro-light"
 dark_theme = "monokai-pro"
 extra_themes = [
-  "giallo/themes/monokai-pro-light.json",
-  "giallo/themes/monokai-pro.json",
+	"giallo/themes/monokai-pro-light.json",
+	"giallo/themes/monokai-pro.json",
 ]
 
 [search]
@@ -50,8 +50,8 @@ description = "Современная, симпатичная и чистая т
 generate_feeds = true
 
 taxonomies = [
-  { name = "tags", feed = true, paginate_by = 10 },
-  { name = "categories", feed = true },
+	{ name = "tags", feed = true, paginate_by = 10 },
+	{ name = "categories", feed = true },
 ]
 
 [extra]
@@ -61,10 +61,10 @@ taxonomies = [
 # Color attribute accepts the same values as extra.accent_color, which can be
 # found below.
 categories = [
-  { name = "Archived", description = "Posts that have been archived due to their age.", color = "purple", icon = "box-arrow-down" },
-  { name = "Featured", description = "Posts that are somewhat decently written.", color = "yellow", icon = "star" },
-  { name = "Hot", description = "Posts that did numbers compared to others.", color = "red", icon = "fire" },
-  { name = "Test", description = "Categories can be set and customized entirely from config, woo-hoo!", color = "green", icon = "feather" },
+	{ name = "Archived", description = "Posts that have been archived due to their age.", color = "purple", icon = "box-arrow-down" },
+	{ name = "Featured", description = "Posts that are somewhat decently written.", color = "yellow", icon = "star" },
+	{ name = "Hot", description = "Posts that did numbers compared to others.", color = "red", icon = "fire" },
+	{ name = "Test", description = "Categories can be set and customized entirely from config, woo-hoo!", color = "green", icon = "feather" },
 ]
 
 # Accent color used by Ametrine.
@@ -126,37 +126,37 @@ show_comments_qr = true
 # Keep in mind that although this can potentially increase security,
 # it can break some things, in which case you will need to set a custom policy.
 csp = [
-  { directive = "img-src", domains = [
-    "'self'",
-    "https:",
-    "data:",
-  ] },
-  { directive = "media-src", domains = [
-    "'self'",
-    "https:",
-  ] },
-  { directive = "script-src", domains = [
-    "cloud.umami.is",
-  ] },
-  { directive = "style-src", domains = [
-    "'self'",
-    "'unsafe-inline'",
-  ] },
-  { directive = "frame-src", domains = [
-    "https://player.vimeo.com",
-    "https://www.youtube-nocookie.com",
-    "https://vmst.io",
-  ] },
-  { directive = "connect-src", domains = [
-    "*.umami.dev",
-    "cloud.umami.is",
-  ] },
-  { directive = "base-uri", domains = [
-    "'none'",
-  ] },
-  { directive = "form-action", domains = [
-    "'none'",
-  ] },
+	{ directive = "img-src", domains = [
+		"'self'",
+		"https:",
+		"data:",
+	] },
+	{ directive = "media-src", domains = [
+		"'self'",
+		"https:",
+	] },
+	{ directive = "script-src", domains = [
+		"cloud.umami.is",
+	] },
+	{ directive = "style-src", domains = [
+		"'self'",
+		"'unsafe-inline'",
+	] },
+	{ directive = "frame-src", domains = [
+		"https://player.vimeo.com",
+		"https://www.youtube-nocookie.com",
+		"https://vmst.io",
+	] },
+	{ directive = "connect-src", domains = [
+		"*.umami.dev",
+		"cloud.umami.is",
+	] },
+	{ directive = "base-uri", domains = [
+		"'none'",
+	] },
+	{ directive = "form-action", domains = [
+		"'none'",
+	] },
 ]
 
 [extra.ru]
@@ -166,10 +166,10 @@ csp = [
 # - date_format_long
 # - date_locale
 categories = [
-  { name = "Archived", description = "Посты, которые были архивированы ввиду своего возраста.", color = "purple", icon = "box-arrow-down" },
-  { name = "Featured", description = "Посты которые написаны относительно неплохо.", color = "yellow", icon = "star" },
-  { name = "Hot", description = "Посты, в разы популарнее остальных.", color = "red", icon = "fire" },
-  { name = "Test", description = "Категории могут быть настроены полностью через файл конфигурации, ву-хуу!", color = "green", icon = "feather" },
+	{ name = "Archived", description = "Посты, которые были архивированы ввиду своего возраста.", color = "purple", icon = "box-arrow-down" },
+	{ name = "Featured", description = "Посты которые написаны относительно неплохо.", color = "yellow", icon = "star" },
+	{ name = "Hot", description = "Посты, в разы популарнее остальных.", color = "red", icon = "fire" },
+	{ name = "Test", description = "Категории могут быть настроены полностью через файл конфигурации, ву-хуу!", color = "green", icon = "feather" },
 ]
 
 date_format = "%d %B %Y г."
@@ -199,28 +199,28 @@ icon = "apple-touch-icon.png"
 # letters of the link name will be used instead.
 # Any icon name from https://phosphoricons.com can be used.
 links = [
-  { url = "@/demo/index.md", name = "Demo", icon = "info" },
-  { url = "@/blog/_index.md", name = "Blog", icon = "newspaper" },
-  { name = "Random 🦄", category = [
-    { url = "https://example.org", name = "Eggman", icon = "egg" },
-    { url = "https://example.org", name = "Honse", icon = "horse" },
-    { url = "http://example.org", name = "Lie", icon = "cake", new = true },
-    { url = "http://example.org", name = "No Icon?" },
-  ] },
+	{ url = "@/demo/index.md", name = "Demo", icon = "info" },
+	{ url = "@/blog/_index.md", name = "Blog", icon = "newspaper" },
+	{ name = "Random 🦄", category = [
+		{ url = "https://example.org", name = "Eggman", icon = "egg" },
+		{ url = "https://example.org", name = "Honse", icon = "horse" },
+		{ url = "http://example.org", name = "Lie", icon = "cake", new = true },
+		{ url = "http://example.org", name = "No Icon?" },
+	] },
 ]
 
 [extra.nav.ru]
 # Translations for the [extra.nav]. Available variables are:
 # - links
 links = [
-  { url = "@/demo/index.md", name = "Демо", icon = "info" },
-  { url = "@/blog/_index.md", name = "Блог", icon = "newspaper" },
-  { name = "Случайное 🦄", category = [
-    { url = "https://example.org", name = "Эггман", icon = "egg" },
-    { url = "https://example.org", name = "Лощдь", icon = "horse" },
-    { url = "http://example.org", name = "Ложь", icon = "cake", new = true },
-    { url = "http://example.org", name = "Нет Значка?" },
-  ] },
+	{ url = "@/demo/index.md", name = "Демо", icon = "info" },
+	{ url = "@/blog/_index.md", name = "Блог", icon = "newspaper" },
+	{ name = "Случайное 🦄", category = [
+		{ url = "https://example.org", name = "Эггман", icon = "egg" },
+		{ url = "https://example.org", name = "Лощдь", icon = "horse" },
+		{ url = "http://example.org", name = "Ложь", icon = "cake", new = true },
+		{ url = "http://example.org", name = "Нет Значка?" },
+	] },
 ]
 
 [extra.footer]
@@ -241,11 +241,11 @@ show_timestamp = true
 # Social links in the footer.
 # Any icon name from https://simpleicons.org can be used.
 socials = [
-  { url = "https://bsky.social", icon = "bluesky" },
-  { url = "https://joinmastodon.org", icon = "mastodon" },
-  { url = "https://pixelfed.org", icon = "pixelfed" },
-  { url = "https://codeberg.org", icon = "codeberg" },
-  { url = "https://signal.org", icon = "signal" },
+	{ url = "https://bsky.social", icon = "bluesky" },
+	{ url = "https://joinmastodon.org", icon = "mastodon" },
+	{ url = "https://pixelfed.org", icon = "pixelfed" },
+	{ url = "https://codeberg.org", icon = "codeberg" },
+	{ url = "https://signal.org", icon = "signal" },
 ]
 
 [extra.footer.ru]

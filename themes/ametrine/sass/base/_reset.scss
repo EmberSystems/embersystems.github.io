@@ -4,28 +4,28 @@
 *,
 :after,
 :before {
-  vertical-align: baseline;
-  box-sizing: border-box;
-  margin: 0;
-  border: none;
-  background: none;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  -webkit-tap-highlight-color: transparent;
+	vertical-align: baseline;
+	box-sizing: border-box;
+	margin: 0;
+	border: none;
+	background: none;
+	padding: 0;
+	color: inherit;
+	font: inherit;
+	-webkit-tap-highlight-color: transparent;
 }
 
 button,
 select {
-  appearance: none;
+	appearance: none;
 }
 
 body {
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  width: 100%;
-  min-height: 100vh;
-  line-height: 1.5;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	width: 100%;
+	min-height: 100vh;
+	line-height: 1.5;
 }
 
 a,
@@ -42,7 +42,7 @@ input[type="reset"],
 input[type="submit"],
 label,
 select {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 article,
@@ -60,7 +60,7 @@ rt,
 ruby,
 section,
 summary {
-  display: block;
+	display: block;
 }
 
 bdi,
@@ -69,14 +69,14 @@ meter,
 output,
 progress,
 time {
-  display: inline-block;
+	display: inline-block;
 }
 
 [hidden],
 datalist,
 dialog:not([open]),
 rp {
-  display: none !important;
+	display: none !important;
 }
 
 embed,
@@ -86,50 +86,50 @@ object,
 picture,
 svg,
 video {
-  display: block;
-  max-width: 100%;
-  height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 
 blockquote:after,
 blockquote:before,
 q:after,
 q:before {
-  content: none;
+	content: none;
 }
 
 strong {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 em {
-  font-style: italic;
+	font-style: italic;
 }
 
 code,
 kbd,
 pre,
 samp {
-  font-family: monospace;
+	font-family: monospace;
 }
 
 sub {
-  vertical-align: sub;
+	vertical-align: sub;
 }
 
 sup {
-  vertical-align: super;
+	vertical-align: super;
 }
 
 small {
-  font-size: small;
+	font-size: small;
 }
 
 table {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }

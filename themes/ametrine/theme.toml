@@ -2,7 +2,7 @@ name = "Ametrine"
 description = "Elegant, pretty, and snappy Zola theme."
 license = "MIT"
 homepage = "https://codeberg.org/Geode/ametrine"
-min_version = "0.22.1"
+min_version = "0.22.0"
 demo = "https://ametrine.daudix.one"
 
 [author]

@@ -8,12 +8,12 @@
 
 <h1>Page Not Found</h1>
 
-<p>The requested page could not be found. Ensure that the requested URL is correct and does not contain any typos.{% if config.extra.issues_url %} If you feel that this behavior is unintended, please file an issue using the button below.{% endif %}</p>
+<p>The requested page could not be found. Please check that the URL is correct and does not contain any typos.{% if config.extra.issues_url %} If you feel that this behavior is unexpected, please create a new issue using the button below.{% endif %}</p>
 
 <div class="buttons">
-  <a href="{% include 'partials/home_url.html' %}">Go Home</a>
-  {%- if config.extra.issues_url %}
-    <a class="suggested external" href="{{ config.extra.issues_url }}" rel="{{ rel_attributes }}">File an Issue</a>
-  {%- endif %}
+	<a href="{% include 'partials/home_url.html' %}">Go Home</a>
+	{%- if config.extra.issues_url %}
+		<a class="suggested external" href="{{ config.extra.issues_url }}" rel="{{ rel_attributes }}">File an Issue</a>
+	{%- endif %}
 </div>
 {% endblock content %}

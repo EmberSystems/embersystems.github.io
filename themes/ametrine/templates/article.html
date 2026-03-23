@@ -4,19 +4,19 @@
 {%- set rel_attributes = macros_rel_attributes::rel_attributes() | trim -%}
 
 <article>
-  <h1>{{ page.title }}</h1>
-  {%- include "partials/article_details.html" -%}
-  {%- include "partials/statements.html" -%}
-  {{ page.content | safe }}
-  {%- include "partials/backlinks.html" -%}
+	<h1>{{ page.title }}</h1>
+	{%- include "partials/article_details.html" -%}
+	{%- include "partials/statements.html" -%}
+	{{ page.content | safe }}
+    {%- include "partials/backlinks.html" -%}
 </article>
 
 {%- if page.extra.fediverse.id -%}
-  {%- include "partials/comments.html" -%}
+	{%- include "partials/comments.html" -%}
 {%- endif -%}
 
 {%- if page.lower or page.higher -%}
-  <hr />
-  {%- include "partials/article_nav.html" -%}
+	<hr />
+	{%- include "partials/article_nav.html" -%}
 {%- endif -%}
 {% endblock content %}

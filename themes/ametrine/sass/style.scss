@@ -6,6 +6,7 @@
 
 @use "base/root";
 @use "base/reset";
+@use "base/fonts";
 @use "base/animations";
 @use "base/base";
 @use "base/typography";
@@ -53,7 +54,6 @@
 @use "components/zola-error";
 
 // Mods
-// @use "mods/compact-sidebar";
 // @use "mods/flat";
 // @use "mods/pill-tags";
-// @use "mods/skeuomorphic"; // UNFINISHED, AND LIKELY WILL NEVER BE
+// @use "mods/skeuomorphic"; // UNFINISHED, IT NEVER WILL BE

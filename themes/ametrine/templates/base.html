@@ -15,13 +15,13 @@ This variable will hold all the text strings for the language #}
 
 {# Initialize localized date variables #}
 {%- if lang != config.default_language -%}
-  {%- set date_format_long = config.extra[lang].date_format_long | default(value="%B %d, %Y, %R (%Z)") -%}
-  {%- set date_format = config.extra[lang].date_format | default(value="%B %d, %Y") -%}
-  {%- set date_locale = config.extra[lang].date_locale | default(value="en_US") -%}
+	{%- set date_format_long = config.extra[lang].date_format_long | default(value="%B %d, %Y, %R (%Z)") -%}
+	{%- set date_format = config.extra[lang].date_format | default(value="%B %d, %Y") -%}
+	{%- set date_locale = config.extra[lang].date_locale | default(value="en_US") -%}
 {%- else -%}
-  {%- set date_format_long = config.extra.date_format_long | default(value="%B %d, %Y, %R (%Z)") -%}
-  {%- set date_format = config.extra.date_format | default(value="%B %d, %Y") -%}
-  {%- set date_locale = config.extra.date_locale | default(value="en_US") -%}
+	{%- set date_format_long = config.extra.date_format_long | default(value="%B %d, %Y, %R (%Z)") -%}
+	{%- set date_format = config.extra.date_format | default(value="%B %d, %Y") -%}
+	{%- set date_locale = config.extra.date_locale | default(value="en_US") -%}
 {%- endif -%}
 
 <!DOCTYPE html>
@@ -29,60 +29,56 @@ This variable will hold all the text strings for the language #}
 {% include "partials/head.html" %}
 
 {%- if page.extra.accent_color -%}
-  {%- set accent_color = true -%}
+	{%- set accent_color = true -%}
 {%- elif section.extra.accent_color -%}
-  {%- set accent_color = true -%}
+	{%- set accent_color = true -%}
 {%- endif -%}
 
 {%- if page.extra.banner -%}
-  {%- set banner = page.extra.banner -%}
-  {%- set blurnail = resize_image(path=page.colocated_path ~ banner, width=4, height=2, op="fill", format="webp") -%}
+	{%- set banner = page.extra.banner -%}
+	{%- set blurnail = resize_image(path=page.colocated_path ~ banner, width=4, height=2, op="fill", format="webp") -%}
 {%- elif section.extra.banner -%}
-  {%- set banner = section.extra.banner -%}
-  {%- set blurnail = resize_image(path=section.colocated_path ~ banner, width=4, height=2, op="fill", format="webp") -%}
+	{%- set banner = section.extra.banner -%}
+	{%- set blurnail = resize_image(path=section.colocated_path ~ banner, width=4, height=2, op="fill", format="webp") -%}
 {%- endif -%}
 
 <body
-  {% if lang in rtl_languages %}dir="rtl"{% endif %}
-  {% if accent_color and banner %}class="has-banner"{% endif %}
+	{% if lang in rtl_languages %}dir="rtl"{% endif %}
+	{% if accent_color and banner %}class="has-banner"{% endif %}
 >
 {% block body %}
-  <span id="↑" hidden></span>
-  <span id="↓" hidden></span>
-  <span id="←" hidden></span>
-  <span id="→" hidden></span>
-  <span id="up" hidden></span>
-  <span id="down" hidden></span>
-  <span id="left" hidden></span>
-  <span id="right" hidden></span>
-  <a id="skip-to-content" href="#main-content" tabindex="0">{{ macros_translate::translate(key="skip_to_content", default="Skip to Main Content", language_strings=language_strings) }}</a>
-  {% include "partials/header.html" %}
-  {% include "partials/sidebar.html" %}
-  {% block body_before %}{% endblock body_before %}
-  {%- if banner -%}
-    <div id="banner">
-      <div>
-        <style>
-          :root {
-            --blurnail: url("{{ blurnail.url | safe }}");
-          }
-        </style>
-        <img class="transparent no-hover" src="{{ blurnail.url }}" />
-        <img class="transparent no-hover{% if page.extra.banner_pixels %} pixels{% endif %}" src="{{ current_url ~ banner }}"{% if config.markdown.lazy_async_image %} decoding="async" loading="lazy"{% endif %} />
-      </div>
-    </div>
-  {%- endif -%}
-  <main id="main-content"{% if config.extra.nav.links | length > 5 or config.extra.nav.force_sidebar %} class="has-nav"{% endif %}>
-    {% block content_before %}{% endblock content_before %}
-    {% block content %}{% endblock content %}
-    {% block content_after %}{% endblock content_after %}
-  </main>
-  {% block body_after %}{% endblock body_after %}
-  {% include "partials/footer.html" %}
-  {% include "partials/search_modal.html" %}
-  {% include "partials/extra_features.html" %}
-  {% include "partials/icons.html" %}
-  {% include "partials/strings.html" %}
+	<span id="up" hidden></span>
+	<span id="down" hidden></span>
+	<span id="left" hidden></span>
+	<span id="right" hidden></span>
+	<a id="skip-to-content" href="#main-content" tabindex="0">{{ macros_translate::translate(key="skip_to_content", default="Skip to Main Content", language_strings=language_strings) }}</a>
+	{% include "partials/header.html" %}
+	{% include "partials/sidebar.html" %}
+	{% block body_before %}{% endblock body_before %}
+	{%- if banner -%}
+		<div id="banner">
+			<div>
+				<style>
+					:root {
+						--blurnail: url("{{ blurnail.url | safe }}");
+					}
+				</style>
+				<img class="transparent no-hover" src="{{ blurnail.url }}" />
+				<img class="transparent no-hover{% if page.extra.banner_pixels %} pixels{% endif %}" src="{{ current_url ~ banner }}"{% if config.markdown.lazy_async_image %} decoding="async" loading="lazy"{% endif %} />
+			</div>
+		</div>
+	{%- endif -%}
+	<main id="main-content"{% if config.extra.nav.links | length > 5 or config.extra.nav.force_sidebar %} class="has-nav"{% endif %}>
+		{% block content_before %}{% endblock content_before %}
+		{% block content %}{% endblock content %}
+		{% block content_after %}{% endblock content_after %}
+	</main>
+	{% block body_after %}{% endblock body_after %}
+	{% include "partials/footer.html" %}
+	{% include "partials/search_modal.html" %}
+	{% include "partials/extra_features.html" %}
+	{% include "partials/icons.html" %}
+	{% include "partials/strings.html" %}
 {% endblock body %}
 </body>
 </html>
