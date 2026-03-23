@@ -1,5 +1,5 @@
 title = "Ember Systems"
-base_url = "https://embersystems.github.io
+base_url = "https://embersystems.github.io"
 description = "The websitre for the Ember Systems' Project."
 
 compile_sass = true
@@ -210,7 +210,7 @@ socials = [
 
 [extra.analytics]
 service = "umami"
-id = "faebeeb0-4276-48fb-9bb8-d3949dd6eedb
+id = "faebeeb0-4276-48fb-9bb8-d3949dd6eedb"
 self_hosted_url = ""
 
 # Optional: For Umami, enable this option to respect users' Do Not Track (DNT)
