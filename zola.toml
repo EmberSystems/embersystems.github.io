@@ -1,6 +1,7 @@
 title = "Ember Systems"
 base_url = "https://embersystems.github.io"
 description = "The websitre for the Ember Systems' Project."
+theme = "Ametrine"
 
 compile_sass = true
 minify_html = true
