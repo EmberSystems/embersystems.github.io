@@ -43,15 +43,6 @@ extra_themes = [
 # Accepted values are "elasticlunr_javascript" and "elasticlunr_json"
 index_format = "elasticlunr_json"
 
-[languages.ru]
-title = "Ametrine"
-description = "Современная, симпатичная и чистая тема."
-generate_feeds = true
-
-taxonomies = [
-  { name = "tags", feed = true, paginate_by = 10 },
-  { name = "categories", feed = true },
-]
 
 [extra]
 # Usage of an icon is heavily adviced. In case if none is provided, a question
@@ -158,23 +149,6 @@ csp = [
   ] },
 ]
 
-[extra.ru]
-# Translations for the [extra]. Available variables are:
-# - categories
-# - date_format
-# - date_format_long
-# - date_locale
-categories = [
-  { name = "Archived", description = "Посты, которые были архивированы ввиду своего возраста.", color = "purple", icon = "box-arrow-down" },
-  { name = "Featured", description = "Посты которые написаны относительно неплохо.", color = "yellow", icon = "star" },
-  { name = "Hot", description = "Посты, в разы популарнее остальных.", color = "red", icon = "fire" },
-  { name = "Test", description = "Категории могут быть настроены полностью через файл конфигурации, ву-хуу!", color = "green", icon = "feather" },
-]
-
-date_format = "%d %B %Y г."
-date_format_long = "%d %B %Y г, %R (%Z)"
-date_locale = "ru_RU"
-
 [extra.meta]
 # Variables bellow accept either "true" or a filename.
 # Favicon can also accept an emoji instead of a filename.
@@ -205,20 +179,6 @@ links = [
     { url = "https://example.org", name = "Honse", icon = "horse" },
     { url = "http://example.org", name = "Lie", icon = "cake", new = true },
     { url = "http://example.org", name = "No Icon?" },
-  ] },
-]
-
-[extra.nav.ru]
-# Translations for the [extra.nav]. Available variables are:
-# - links
-links = [
-  { url = "@/demo/index.md", name = "Демо", icon = "info" },
-  { url = "@/blog/_index.md", name = "Блог", icon = "newspaper" },
-  { name = "Случайное 🦄", category = [
-    { url = "https://example.org", name = "Эггман", icon = "egg" },
-    { url = "https://example.org", name = "Лощдь", icon = "horse" },
-    { url = "http://example.org", name = "Ложь", icon = "cake", new = true },
-    { url = "http://example.org", name = "Нет Значка?" },
   ] },
 ]
 
